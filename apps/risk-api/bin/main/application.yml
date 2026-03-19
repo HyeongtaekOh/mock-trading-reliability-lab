@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: risk-api
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      service: risk-api
+
+app:
+  rules:
+    max-order-amount: 1000000
+    user-exposure-limit: 2000000
+    blocked-symbols: SCAM,HALT
